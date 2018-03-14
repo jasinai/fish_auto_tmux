@@ -12,7 +12,7 @@ because it is defined with the option `--on-variable PWD`.
     jasinai@pc ~ > mkdir my_project
     jasinai@pc ~ > echo my_project_session > my_project/.auto_tmux_session
     jasinai@pc ~ > cd my_project/
-    Creating tmux session 'my_project_session' according to '/home/jasinai/my_project/.auto_tmux_session'
+    Creating and attaching tmux session 'my_project_session' according to '/home/jasinai/my_project/.auto_tmux_session'
     [ Now inside tmux session ]
     jasinai@pc ~/my_project >
     jasinai@pc ~/my_project > cd ../other_project
