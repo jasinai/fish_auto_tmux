@@ -14,7 +14,10 @@ because it is defined with the option `--on-variable PWD`.
     jasinai@pc ~ > cd my_project/
     Creating tmux session 'my_project_session' according to '/home/jasinai/my_project/.auto_tmux_session'
     [ Now inside tmux session ]
-    jasinai@pc ~/my_project > 
+    jasinai@pc ~/my_project >
+    jasinai@pc ~/my_project > cd ../other_project
+    Warning: Need tmux session 'other_project' according to '/home/jasinai/other_project/.auto_tmux_session' but you are currently in 'my_project_session'
+    jasinai@pc ~/other_project >
 
 ## Installation
 
