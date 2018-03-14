@@ -12,17 +12,23 @@ function auto_tmux --on-variable PWD -d 'Automatically attach to a tmux session 
                 if test "$current_session" != "$required_session"
                     if test "$current_session" = ""
                         if not tmux has-session -t "$required_session" 2> /dev/null
-                            echo "Creating tmux session '$required_session' according to '$session_file'"
-                            if not tmux new-session -s "$required_session"
+                            echo "Creating and attaching tmux session '$required_session' according to '$session_file'"
+                            if not tmux new-session -A -s "$required_session"
                                 echo "Error creating session!"
-                                return
+                                return 1
+                            end
+                        else
+                            echo "Attaching tmux session '$required_session' according to '$session_file'"
+                            if not tmux attach-session -t "$required_session"
+                                echo "Error attaching session!"
+                                return 1
                             end
                         end
-                        echo "Attaching tmux session '$required_session' according to '$session_file'"
-                        tmux attach-session -t "$required_session"
                     else
                         echo "Warning: Need tmux session '$required_session' according to '$session_file' but you are currently in '$current_session'"
                     end
+                else
+                    # Already in correct session, do nothing.
                 end
             end
             return 0
